@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Review {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "movie_id")
-    @JsonBackReference // Đặt tên cột khoá ngoại trong bảng review
+    @JoinColumn(name = "movie_id")// Đặt tên cột khoá ngoại trong bảng review
+    @JsonBackReference
     private Movie movie;
 }
